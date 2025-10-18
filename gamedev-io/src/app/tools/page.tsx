@@ -3,6 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import TextToTextureTool from "./text-texture";
 
 export default function ToolsPage() {
   const searchParams = useSearchParams();
@@ -22,7 +23,7 @@ export default function ToolsPage() {
   const renderContent = () => {
     switch (activeTool) {
       case "text-to-texture":
-        return <p>Text-to-Texture tool content</p>;
+        return <TextToTextureTool />;
       case "sketch-to-render":
         return <p>Sketch-to-Render tool content</p>;
       case "render-to-model":
