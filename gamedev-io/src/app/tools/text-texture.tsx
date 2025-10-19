@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function TextToRenderTool() {
@@ -57,6 +58,8 @@ export default function TextToRenderTool() {
       setLoading(false);
     }
   };
+
+  const router = useRouter();
 
   return (
     <div className="flex flex-col lg:flex-row gap-6 w-full max-w-5xl mx-auto mt-4">
@@ -166,6 +169,32 @@ export default function TextToRenderTool() {
               transition={{ duration: 0.25 }}
             />
           </AnimatePresence>
+        )}
+
+          {/* Only show Test button if imageUrl exists */}
+          {imageUrl && (
+          <button
+            onClick={async () => {
+              try {
+                const response = await fetch(imageUrl);
+                const blob = await response.blob();
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                const fileName = imageUrl.split('/').pop() || 'texture.jpg';
+                link.download = fileName;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                router.push(`/texture-tester?textureUrl=${encodeURIComponent(imageUrl)}`);
+              } catch (error) {
+                console.error('Error downloading image:', error);
+              }
+            }}
+            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-md"
+          >
+            Test on 3D Model
+          </button>
         )}
       </div>
     </div>
