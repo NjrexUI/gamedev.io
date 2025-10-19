@@ -1,7 +1,7 @@
 'use client';
 
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState, Suspense } from "react"; // Add Suspense import
+import { useEffect, useState, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import TextToTextureTool from "./text-texture/page";
 import SketchToRenderTool from "./sketch-to-render/page";
