@@ -1,11 +1,10 @@
-'use client';
+"use client";
 
 import { useSearchParams } from 'next/navigation';
 
 export default function TextureTesterClient() {
   const params = useSearchParams();
   const textureUrl = params.get('textureUrl');
-
 
   return (
     <div className="w-full h-screen bg-neutral-900 flex flex-col items-center p-4">
