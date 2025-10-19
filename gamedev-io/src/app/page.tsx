@@ -4,12 +4,6 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 
 export default function Home() {
-    const title = "Game Developer's Tools";
-    let baseUrl = "https://gamedev-io.vercel.app";
-    if (process.env.NODE_ENV === "development") {
-      baseUrl = "http://localhost:3000";
-    }
-
     const router = useRouter();
 
     const tools = [

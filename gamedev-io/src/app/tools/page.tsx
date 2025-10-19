@@ -7,12 +7,6 @@ import TextToTextureTool from "./text-texture/page";
 import SketchToRenderTool from "./sketch-to-render/page";
 
 function ToolsContent() {
-  const title = "Game Developer's Tools";
-  let baseUrl = "https://gamedev-io.vercel.app";
-  if (process.env.NODE_ENV === "development") {
-    baseUrl = "http://localhost:3000";
-  }
-
   const searchParams = useSearchParams();
   const [activeTool, setActiveTool] = useState<string | null>(null);
 
