@@ -46,33 +46,8 @@
 
 	
 <body style="text-align: center">
-	<br/>
-	<div align="center" >
-		<img src="images/" /><br/>
-
-		<a style="top: -180px; right: -220px; position: relative; overflow:hidden;" class="various" href="#normalmaponline_help">
-			<img src="images/help.png" />
-		</a>
-	</div>
-
 	<!-- DESCRIPTION -->
 	<div id="normalmaponline_help" style="display:none;overflow:hidden;font-family:Georgia" align="left">		
-		<h1>NormalMap-Online</h1>
-		<p>
-			This website lets you create normal maps from height maps <b>for free</b>.<br/>
-			All normal map textures you create are <b>your own</b>.<br/>
-			Textures are <b>not</b> saved on the server and all scripts are running on your Browser.<br/>
-			<br/>
-			Just <b>drag & drop</b> a heightmap in the specified field and adjust settings.<br/>
-			Afterwards check the preview window and download your own normalmap.<br/>
-			Additionally you can adjust and download displacement and ambient occlusion maps<br/>
-			<br/>
-			The preview window shows a 3D-model with several different maps.<br/>
-			Each map can be enabled/disabled and the preview model can be adjusted.<br/>
-			<br/>
-			If you have further questions, just give feedback to the mail-adress on the webpage.<br/>
-		</p>			
-
 		<h2>Normal Maps</h2>
 		<p>
 			<img src="images/normal_description.png" style="display: block; 
@@ -102,8 +77,6 @@
 			<div id="column_btn_left_div" style="vertical-align:middle"> >> </div>
 			</div>
 		</div>
-	
-		<!--<div class="column_block" style="display:inline-block; vertical-align:top;">-->
 		
 		<!-- Drop box %D -->
 		<div class="column" id="column_height">
@@ -111,9 +84,6 @@
 				<table class="options_top" style="width: 100%; table-layout: fixed;">
 					<!-- First Row - Batch Mode -->
 					<tr>
-							<td class="option_text" style="width: 120px;">
-									<span>Batch Mode</span>
-							</td>
 							<td class="options" colspan="2">
 									<div style="display: flex; align-items: center;">
 											<button class="download" style="width: 10em; height: 2em;" onclick="select_multiple_height_files.click()">
@@ -121,55 +91,33 @@
 													style="position:absolute;visibility:hidden;" multiple>
 													Select Files
 											</button>
-											<a style="margin-left: 10px;" class="various" href="#batch_mode_help">
-													<img src="images/help.png"/>
-											</a>
+											<a style="position: relative; left: 85px; bottom: -10px" class="various" href="#heightmap_help">
+												<img src="images/help.png" />
+										</a>
+										<a style="position: relative; left: 115px; bottom: -10px;" class="various" href="#photo_help">
+												<img src="images/attention.png"/>
+										</a>
 									</div>
 							</td>
 					</tr>
 					
 					<!-- Second Row - Checkboxes -->
 					<tr>
-							<td class="option_text" style="display:block; width: 120px;">
-									<span>Map Types</span>
-							</td>
 							<td class="options" colspan="2">
 									<div style="display: flex; left: 10px; gap: 5px; flex-wrap: wrap;">
 											<label><input id="normal_tick" type="checkbox" checked />Normal</label>
 											<label><input id="displacement_tick" type="checkbox" checked />Displacement</label>
+									</div>
+									<div style="display: flex; left: 10px; gap: 5px; flex-wrap: wrap;">
 											<label><input id="ambient_tick" type="checkbox" checked />AmbientOcc</label>
 											<label><input id="specular_tick" type="checkbox" checked />Specular</label>
 									</div>
 							</td>
 					</tr>
 					
-					<!-- Third Row - Drag & Drop -->
-					<tr>
-							
-							<td class="options" colspan="2">
-									<div style="display: flex; align-items: center; position:relative; bottom: 30px;">
-											<img src="images/drag_drop.png"/>
-											<a style="position: relative; left: 85px; bottom: -10px" class="various" href="#heightmap_help">
-													<img src="images/help.png" />
-											</a>
-											<a style="position: relative; left: 115px; bottom: -10px;" class="various" href="#photo_help">
-													<img src="images/attention.png"/>
-											</a>
-									</div>
-							</td>
-					</tr>
+					<div> <a>Read more about Height Maps and Normal Maps:</a> </div>
 				</table>
 			</div>
-			
-			<div id="batch_mode_help" style="display:none;overflow:hidden;font-family:Georgia" align="left">					
-				<h1>Batch mode</h1>
-				
-				<p>
-					With this you can create maps for multiple height maps all at once. </br>
-					Try it out and give feedback!
-				</p>
-			</div>
-
 			
 			<!-- DESCRIPTION HEIGHT MAP -->
 
@@ -236,12 +184,6 @@
 			<div class="tabs" style="margin-right:10px; text-align:right;">
 				<input class="tab_button" id="tab_btn_heightmap" type="button" value="HeightMap" onclick="NMO_Main.activate_height_tab('height')" disabled />
 				<input class="tab_button" id="tab_btn_pictures" type="button" value="Pictures" onclick="NMO_Main.activate_height_tab('pictures')" />
-				<!--
-				<input class="tab_button" style="color: #888888; border: 2px solid #666666;" id="tab_btn_photo" type="button" value="Photo"/>
-
-				<input class="tab_button" id="tab_btn_heightmap" type="button" disabled value="HeightMap" onclick="activate_height_tab('height')"/>
-				<input class="tab_button" id="tab_btn_photo"     type="button" value="Photo" onclick="activate_height_tab('photo'); reconstruct_depth();"/>
-				-->
 				
 			</div>			
 			<div class="view" id="height_map" style="display: inline-block;float: left;">

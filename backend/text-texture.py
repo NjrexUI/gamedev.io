@@ -71,9 +71,14 @@ async def generate_textures(data: GenerateRequest):
         "hf-secret": secret,
     }
 
+    final_prompt = data.prompt + ". TEXTURE STYLE: " + data.style
+    
+    if data.make_it_tile:
+        final_prompt += ". MAKE TEXTURE SEAMPLESS"
+        
     payload = {
         "params": {
-            "prompt": data.prompt,
+            "prompt": final_prompt,
             "width_and_height": "1536x1536",
             "enhance_prompt": False,
             "style_id": "464ea177-8d40-4940-8d9d-b438bab269c7",
