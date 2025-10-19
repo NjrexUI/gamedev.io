@@ -8,10 +8,6 @@ load_dotenv()
 
 app = FastAPI()
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000)
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -117,3 +113,7 @@ async def generate_textures(data: GenerateRequest):
     image_url = await poll_job_set(job_set_id, headers, max_wait=30)
 
     return {"url": image_url}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="127.0.0.1", port=8000)
