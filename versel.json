@@ -12,7 +12,7 @@
     ],
     "routes": [
       { "src": "/api/(.*)", "dest": "backend/main.py" },
-      { "src": "/(.*)", "dest": "gamedev-io/src/page.tsx" }
+      { "src": "/(.*)", "dest": "gamedev-io/src/app/page.tsx" }
     ]
   }
   
