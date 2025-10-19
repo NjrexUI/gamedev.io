@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request, HTTPException
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 import httpx, asyncio, os
@@ -71,7 +71,7 @@ async def generate_textures(data: GenerateRequest):
         "hf-secret": secret,
     }
 
-    final_prompt = data.prompt + ". TEXTURE STYLE: " + data.style
+    final_prompt = "A VIDEO GAME TEXTURE." + data.prompt + ". TEXTURE STYLE: " + data.style
     
     if data.make_it_tile:
         final_prompt += ". MAKE TEXTURE SEAMPLESS"
