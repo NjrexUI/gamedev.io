@@ -1,12 +1,12 @@
 'use client';
 
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react"; // Add Suspense import
 import { motion, AnimatePresence } from "framer-motion";
 import TextToTextureTool from "./text-texture/page";
 import SketchToRenderTool from "./sketch-to-render/page";
 
-export default function ToolsPage() {
+function ToolsContent() {
   const title = "Game Developer's Tools";
   let baseUrl = "https://gamedev-io.vercel.app";
   if (process.env.NODE_ENV === "development") {
@@ -30,9 +30,9 @@ export default function ToolsPage() {
   const renderContent = () => {
     switch (activeTool) {
       case "text-to-texture":
-        return <TextToTextureTool/>;
+        return <TextToTextureTool />;
       case "sketch-to-render":
-        return <SketchToRenderTool/>;
+        return <SketchToRenderTool />;
       case "render-to-model":
         return <p>Render-to-Model tool content</p>;
       default:
@@ -88,5 +88,13 @@ export default function ToolsPage() {
         </AnimatePresence>
       </div>
     </div>
+  );
+}
+
+export default function ToolsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-neutral-900 text-white flex items-center justify-center">Loading...</div>}>
+      <ToolsContent />
+    </Suspense>
   );
 }
