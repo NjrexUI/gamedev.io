@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import TextToTextureTool from "./text-texture";
-import SketchToRenderTool from "./sketch-to-render";
+import TextToTextureTool from "./text-texture/page";
+import SketchToRenderTool from "./sketch-to-render/page";
 
 export default function ToolsPage() {
   const title = "Game Developer's Tools";
