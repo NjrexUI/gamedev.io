@@ -6,7 +6,7 @@
         "use": "@vercel/python"
       },
       {
-        "src": "gamedev-io/next.config.js",
+        "src": "gamedev-io/next.config.ts",
         "use": "@vercel/next"
       }
     ],
