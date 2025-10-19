@@ -1,4 +1,4 @@
-"use client";
+import { Suspense } from 'react';
 import { useSearchParams } from "next/navigation";
 
 export default function TextureTesterPage() {
@@ -6,6 +6,7 @@ export default function TextureTesterPage() {
   const textureUrl = searchParams.get("textureUrl");
 
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <div className="w-full h-screen bg-neutral-900 flex flex-col items-center p-4">
       <h1 className="text-white text-2xl font-bold mb-4">3D Texture Tester</h1>
       {textureUrl ? (
@@ -17,5 +18,6 @@ export default function TextureTesterPage() {
         <div className="text-white">No texture URL provided.</div>
       )}
     </div>
+    </Suspense>
   );
 }
