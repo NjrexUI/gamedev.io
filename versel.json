@@ -6,13 +6,13 @@
         "use": "@vercel/python"
       },
       {
-        "src": "gamedev-io/next.config.ts",
+        "src": "gamedev-io/next.config.js",
         "use": "@vercel/next"
       }
     ],
     "routes": [
       { "src": "/api/(.*)", "dest": "backend/main.py" },
-      { "src": "/(.*)", "dest": "gamedev-io/src/app" }
+      { "src": "/(.*)", "dest": "gamedev-io/$1" }
     ]
   }
   
